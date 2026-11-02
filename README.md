@@ -27,7 +27,7 @@ python -m http.server 8000
 
 1. 저장소 Settings → Pages → Source를 **GitHub Actions**로 설정
 2. `main`에 push하면 자동 배포
-3. 주소: `https://<GitHub ID>.github.io/<저장소 이름>/`
+3. 주소: [`클릭`](https://dominicus0830.github.io/OpenSourceHW/)
 
 ## 자동 배포 확인
 
