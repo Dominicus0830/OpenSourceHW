@@ -31,8 +31,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
       - name: Pull latest image and restart container
-        shell: cmd  # bash 대신 윈도우 기본 명령어 프롬프트(cmd) 사용
+        shell: cmd
         run: |
           docker pull ${{ secrets.DOCKERHUB_USERNAME }}/opensource-hw:latest
           docker compose down
