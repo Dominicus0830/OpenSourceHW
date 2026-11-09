@@ -1,6 +1,6 @@
 services:
   web:
-    image: dominicus0830/opensourcehw:latest
+    image: dominicus0830/opensource-hw:latest
     container_name: opensourcehw-web
     restart: unless-stopped
     ports:
