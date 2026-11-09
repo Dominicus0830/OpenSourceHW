@@ -29,11 +29,11 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3  # <--- 이 부분이 추가되어야 docker-compose.yml을 읽을 수 있습니다!
+        uses: actions/checkout@v3
 
       - name: Pull latest image and restart container
-        shell: bash
+        shell: cmd  # bash 대신 윈도우 기본 명령어 프롬프트(cmd) 사용
         run: |
           docker pull ${{ secrets.DOCKERHUB_USERNAME }}/opensource-hw:latest
-          docker compose down || true
+          docker compose down
           docker compose up -d
