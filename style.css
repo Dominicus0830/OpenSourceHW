@@ -1,0 +1,20 @@
+:root { --bg:#0f172a; --card:#1e293b; --fg:#f1f5f9; --accent:#6366f1; --mute:#94a3b8; }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; min-height:100vh; display:flex; flex-direction:column; align-items:center; }
+main { width:100%; max-width:560px; padding:24px 16px 8px; text-align:center; }
+h1 { font-size:1.6rem; margin:0 0 6px; }
+.sub { color:var(--mute); font-size:.9rem; margin:0 0 16px; }
+.stage { position:relative; border-radius:16px; overflow:hidden; background:#000; aspect-ratio:4/3; }
+video { width:100%; height:100%; object-fit:cover; transform:scaleX(-1); }
+#overlay { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:3rem; font-weight:700; background:rgba(0,0,0,.35); text-shadow:0 2px 8px #000; }
+.row { display:flex; gap:10px; margin:14px 0; }
+button { flex:1; padding:14px; border:0; border-radius:12px; background:var(--accent); color:#fff; font-size:1rem; font-weight:600; cursor:pointer; }
+button:disabled { opacity:.4; cursor:not-allowed; }
+.board { display:flex; gap:10px; }
+.card { flex:1; background:var(--card); border-radius:12px; padding:14px; }
+.card span { display:block; color:var(--mute); font-size:.85rem; }
+.card b { font-size:2.6rem; }
+.result { font-size:1.3rem; font-weight:700; margin:14px 0 4px; min-height:1.6em; }
+.score { color:var(--mute); margin:0; }
+.live { color:var(--mute); font-size:.85rem; }
+footer { margin-top:auto; padding:12px; color:var(--mute); font-size:.75rem; font-family:ui-monospace,Consolas,monospace; }

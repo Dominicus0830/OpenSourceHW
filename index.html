@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>손 제스처 가위바위보</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>✊✋✌️ 손 제스처 가위바위보</h1>
+    <p class="sub">웹캠으로 손 모양을 인식해서 컴퓨터와 대결해요. (영상은 서버로 전송되지 않아요)</p>
+
+    <div class="stage">
+      <video id="video" autoplay playsinline muted></video>
+      <div id="overlay">카메라를 켜주세요</div>
+    </div>
+
+    <div class="row">
+      <button id="startBtn">카메라 시작</button>
+      <button id="playBtn" disabled>대결 시작!</button>
+    </div>
+
+    <div class="board">
+      <div class="card"><span>나</span><b id="me">-</b></div>
+      <div class="card"><span>컴퓨터</span><b id="cpu">-</b></div>
+    </div>
+    <p id="result" class="result">준비되면 버튼을 눌러요</p>
+    <p class="score">승 <b id="w">0</b> · 무 <b id="d">0</b> · 패 <b id="l">0</b></p>
+    <p class="live">현재 인식: <span id="live">-</span></p>
+  </main>
+
+  <footer>
+    <span id="ver">버전: -</span>
+  </footer>
+
+  <script src="version.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

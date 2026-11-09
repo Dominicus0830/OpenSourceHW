@@ -1,0 +1,39 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/opensource-hw:latest
+
+  deploy-to-local:
+    needs: build-and-push
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3  # <--- 이 부분이 추가되어야 docker-compose.yml을 읽을 수 있습니다!
+
+      - name: Pull latest image and restart container
+        shell: bash
+        run: |
+          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/opensource-hw:latest
+          docker compose down || true
+          docker compose up -d
